@@ -3,9 +3,12 @@ import matplotlib.pyplot as plt
 from sklearn.manifold import MDS
 
 class Graph:
+    """
+    class for initializing and creating desired graph
+    """
     def __init__(self):
         self.number_of_nodes = 0
-        self.adjacency_list = {}
+        self.adjacency_list = {} #stores the graph
 
     def insert_node(self, data):
         if data not in self.adjacency_list:
@@ -23,6 +26,9 @@ class Graph:
             print(f"{node} -->> {connections}")
 
 class SOM:
+    """
+    Generates a topological order of neurons based on input data
+    """
     def __init__(self, num_neurons, num_iterations, learning_rate, neighborhood_radius):
         self.num_neurons = num_neurons
         self.num_iterations = num_iterations
@@ -78,6 +84,7 @@ def calculate_tour_cost(tour, graph):
             break
     return total_cost
 
+#this function solves the issue of the some generating paths that violate the graph's structure 
 def filter_invalid_edges(tour, graph):
     valid_tour = [tour[0]]
     for i in range(1, len(tour)):
@@ -116,6 +123,7 @@ my_graph.insert_edge(5, 6, 6)
 my_graph.insert_edge(5, 7, 7)
 my_graph.insert_edge(6, 7, 9)
 
+#create the distance matrix
 num_nodes = my_graph.number_of_nodes
 large_value = 1e6  # A large finite value to represent non-existent edges
 distance_matrix = np.full((num_nodes, num_nodes), large_value)
@@ -156,5 +164,3 @@ print(f"Initial Tour Cost: {initial_cost}")
 # Plot the tour
 plot_tour(city_coords, preliminary_tour)
 
-#adjust the tour cost calculation function to be more accurate
-#ask if the adjust how the neorons are given identities for better clarity
