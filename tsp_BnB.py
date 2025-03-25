@@ -1,6 +1,4 @@
 """
-Implements an undirected graph using an adjacency list.
-
 Key points:
 1. Each node is stored as a key in a dictionary (`adjacency_list`).
 2. The dictionary value is a list of neighboring nodes.
@@ -120,13 +118,6 @@ my_graph.insert_edge(5, 6, 6)
 my_graph.insert_edge(5, 7, 7)
 my_graph.insert_edge(6, 7, 9)
 # my_graph.show_connections()  # Displays each node's neighbors
-
-# """
-# Expected output:
-# 1 -->> 2 3
-# 2 -->> 1 3
-# 3 -->> 1 2
-# """
 
 # print(my_graph.adjacency_list)  
 # print(my_graph.number_of_nodes) 
